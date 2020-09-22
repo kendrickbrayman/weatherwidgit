@@ -22,5 +22,5 @@ nextDay = weatherData['daily'][1]
 outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
 
 jsonOutput = json.loads(json.dump({'text':outputText,'url':"google.com"}))
-
+#out
 rq.post('https://widgetweatherudpate.herokuapp.com/',json=jsonOutput)
