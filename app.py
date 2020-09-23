@@ -11,8 +11,8 @@ def webhook():
         lat = request.args['lat']
         long = request.args['long']
         weatherString = Weather(lat,long)
-        return weatherString,200
-    return 200
+        return weatherString, 200
+    return 'OK', 200
 
 if __name__ == '__main__':
     app.run()
