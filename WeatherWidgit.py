@@ -12,6 +12,7 @@ class Weather():
         self.lon = long
 
     def get(self):
+        return 200
         #lat = 34.026953
         #long = -118.413970
         WeatherKEY = os.environ['APIKEY']
