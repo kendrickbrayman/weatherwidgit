@@ -8,11 +8,10 @@ def kelvin2Faren(num):
 class Weather():
 
     def __init__(self,lat,long):
-        self.lat = lat
-        self.lon = long
+        self.lat = float(lat)
+        self.lon = float(long)
 
     def get(self):
-        return 200
         #lat = 34.026953
         #long = -118.413970
         WeatherKEY = os.environ['APIKEY']
@@ -28,9 +27,7 @@ class Weather():
 
             outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
 
-            jsonOutput = json.loads(json.dump({'text':outputText,'url':"google.com"}))
-
-            return  jsonOutput
+            return  outputText
 
         except Exception as e:
             return print (str(e.__class__.__name__) + ": " + str(e))
