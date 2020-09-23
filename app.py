@@ -10,7 +10,8 @@ def webhook():
     if ('lat' and 'long' in request.args):
         lat = request.args['lat']
         long = request.args['long']
-        weatherString = Weather(lat,long)
+        weather = Weather(lat,long)
+        weatherString = weather.get()
         return weatherString, 200
     return 'ok', 200
 
