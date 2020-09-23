@@ -2,25 +2,38 @@ import requests as rq
 import os
 import json
 
-
 def kelvin2Faren(num):
     return round(((num - 273.15) * 9 / 5) + 32, 1)
 
+class Weather():
 
-lat = 34.026953
-long = -118.413970
-WeatherKEY = os.environ['APIKEY']
+    def __init__(self,lat,long):
+        self.lat = lat
+        self.lon = long
 
-weatherData = rq.get(
-    'https://api.openweathermap.org/data/2.5/onecall?exclude=current,minutely,hourly,alert',
-    params={'lat': lat, 'lon': long, 'appid': WeatherKEY}).json()
+    def get(self):
+        #lat = 34.026953
+        #long = -118.413970
+        WeatherKEY = os.environ['APIKEY']
 
-nextDay = weatherData['daily'][1]
+        try:
+            weatherData = rq.get(
+                'https://api.openweathermap.org/data/2.5/onecall?exclude=current,minutely,hourly,alert',
+                params={'lat': self.lat, 'lon': self.long, 'appid': WeatherKEY}).json()
 
-# convert dt to datetime and find the next weekend to determine how good it is for golf conditions
+            nextDay = weatherData['daily'][1]
 
-outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
+            # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
-jsonOutput = json.loads(json.dump({'text':outputText,'url':"google.com"}))
+            outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
 
-rq.post('https://widgetweatherudpate.herokuapp.com/',json=jsonOutput)
+            jsonOutput = json.loads(json.dump({'text':outputText,'url':"google.com"}))
+
+            return  jsonOutput
+
+        except Exception as e:
+            return print (str(e.__class__.__name__) + ": " + str(e))
+
+
+
+
