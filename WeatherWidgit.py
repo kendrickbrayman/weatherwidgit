@@ -9,7 +9,7 @@ class Weather():
 
     def __init__(self,lat,long):
         self.lat = float(lat)
-        self.lon = float(long)
+        self.long = float(long)
 
     def get(self):
         #lat = 34.026953
