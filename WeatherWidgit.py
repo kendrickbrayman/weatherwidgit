@@ -27,10 +27,10 @@ class Weather():
 
             outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
 
-            return  outputText
+            return outputText
 
         except Exception as e:
-            return print (str(e.__class__.__name__) + ": " + str(e))
+            return str(e)
 
 
 
