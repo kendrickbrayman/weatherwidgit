@@ -26,9 +26,9 @@ class Weather():
 
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
-            outputText = '{text:"The temperature tomorrow should be ' + str(kelvin2Faren(nextDay["feels_like"]['day'])) + u"\N{DEGREE SIGN}" + 'F"}'
+            outputText = {'text':'The temperature tomorrow should be ' + str(kelvin2Faren(nextDay["feels_like"]['day'])) + u"\N{DEGREE SIGN}" + 'F'}
 
-            return outputText
+            return json.dumps(outputText)
 
         except Exception as e:
             return str(e)
