@@ -22,7 +22,7 @@ class Weather():
                 params={'lat': self.lat, 'lon': self.long, 'appid': WeatherKEY}).json()
 
             #test = weatherData['test1234'][1][6]
-            nextDay = json.loads(weatherData)['daily'][1]
+            nextDay = weatherData['daily'][1]
 
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
