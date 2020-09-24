@@ -25,7 +25,7 @@ class Weather():
 
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
-            outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
+            #outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
 
             return "outputText"
 
