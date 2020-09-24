@@ -12,7 +12,7 @@ def webhook():
         long = request.args['long']
         weather = Weather(lat,long)
         weatherString = weather.get()
-        return weatherString, 200
+        return "weatherString", 200
     return 'ok', 200
 
 if __name__ == '__main__':
