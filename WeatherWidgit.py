@@ -21,7 +21,7 @@ class Weather():
                 'https://api.openweathermap.org/data/2.5/onecall?exclude=current,minutely,hourly,alert',
                 params={'lat': self.lat, 'lon': self.long, 'appid': WeatherKEY}).json()
 
-            nextDay = weatherData['lat']
+            test = weatherData['test1234'][1][6]
 
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
