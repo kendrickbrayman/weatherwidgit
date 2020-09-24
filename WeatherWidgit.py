@@ -11,7 +11,7 @@ class Weather():
         self.lat = float(lat)
         self.long = float(long)
 
-    def get(self):
+    def getWeather(self):
         #lat = 34.026953
         #long = -118.413970
         WeatherKEY = os.environ['APIKEY']
@@ -21,7 +21,7 @@ class Weather():
                 'https://api.openweathermap.org/data/2.5/onecall?exclude=current,minutely,hourly,alert',
                 params={'lat': self.lat, 'lon': self.long, 'appid': WeatherKEY}).json()
 
-            test = weatherData['test1234'][1][6]
+            #test = weatherData['test1234'][1][6]
 
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 

@@ -11,7 +11,7 @@ def webhook():
         lat = request.args['lat']
         long = request.args['long']
         weather = Weather(lat,long)
-        weatherString = weather.get()
+        weatherString = weather.getWeather()
         return weatherString, 200
     return 'ok', 200
 
