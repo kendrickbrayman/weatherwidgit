@@ -21,12 +21,12 @@ class Weather():
                 'https://api.openweathermap.org/data/2.5/onecall?exclude=current,minutely,hourly,alert',
                 params={'lat': self.lat, 'lon': self.long, 'appid': WeatherKEY}).json()
 
-            #test = weatherData['test1234'][1][6]
+
             nextDay = weatherData['daily'][1]
 
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
-            outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
+            outputText = '{text:The temperature tomorrow should be ' + str(kelvin2Faren(nextDay["feels_like"]['day'])) + u"\N{DEGREE SIGN}" + 'F}'
 
             return outputText
 
