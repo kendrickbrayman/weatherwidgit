@@ -22,12 +22,13 @@ class Weather():
                 params={'lat': self.lat, 'lon': self.long, 'appid': WeatherKEY}).json()
 
             #test = weatherData['test1234'][1][6]
-            a = weatherData
+            nextDay = json.loads(weatherData)['daily'][1]
+
             # convert dt to datetime and find the next weekend to determine how good it is for golf conditions
 
-            #outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
+            outputText = 'The temperature tomorrow should be ' + str(nextDay["feels_like"]['day']) + u"\N{DEGREE SIGN}" + 'F'
 
-            return a
+            return outputText
 
         except Exception as e:
             return str(e)
